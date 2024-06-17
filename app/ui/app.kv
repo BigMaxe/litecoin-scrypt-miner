@@ -1,0 +1,28 @@
+BoxLayout:
+    orientation: 'vertical'
+    padding: 10
+    spacing: 10
+
+    Label:
+        id: status_label
+        text: "Status: Idle"
+        font_size: '20sp'
+
+    TextInput:
+        id: address_input
+        hint_text: 'Enter your mining address'
+        multiline: False
+
+    ProgressBar:
+        id: progress_bar
+        max: 1000
+
+    Button:
+        text: 'Start Mining'
+        size_hint: (1, 0.2)
+        on_press: app.start_mining()
+
+    Button:
+        text: 'Stop Mining'
+        size_hint: (1, 0.2)
+        on_press: app.stop_mining()
