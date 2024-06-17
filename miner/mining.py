@@ -1,8 +1,10 @@
-# miner/mining.py
 import scrypt
 import numpy as np
 import threading
 import time
+import psutil
+import config
+from app.utils.power_management import manage_power
 
 mining = False
 hashrate = 0
@@ -25,11 +27,11 @@ def mine():
     global hashrate
     while mining:
         # Simulate hashing work
-        # This is a placeholder for actual mining logic using the scrypt algorithm
+        data = b"some data"
+        salt = b"some salt"
+        scrypt.hash(data, salt, N=config.SCRYPT_N, r=config.SCRYPT_R, p=config.SCRYPT_P, buflen=config.SCRYPT_BUFLEN)
         time.sleep(1)
         hashrate += np.random.randint(1, 10)  # Increment hashrate randomly for demonstration purposes
 
-        # Simulate the Scrypt hashing process
-        data = b"some data"
-        salt = b"some salt"
-        scrypt.hash(data, salt, N=16384, r=8, p=1, buflen=64)
+        # Optionally, add logic to manage CPU usage and power efficiency here
+        manage_power()
