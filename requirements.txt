@@ -1,0 +1,10 @@
+kivy
+scrypt
+numpy
+psutil
+cython
+kivy-garden
+buildozer
+asyncio
+numba
+python-decouple
